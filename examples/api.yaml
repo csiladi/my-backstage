@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: identityAPI
+  description: The Identity API
+  tags:
+    - store
+    - rest
+  links:
+    - url: https://github.com/EcoOnline/identity-app
+      title: GitHub Repo
+      icon: github
+    - url: https://github.com/EcoOnline/identity-app/blob/develop/ApiDoc/swagger-api.yaml
+      title: API Specs
+      icon: code
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: identity-platform
+  definition: 
+    $text: https://github.com/EcoOnline/identity-app/blob/develop/ApiDoc/swagger-api.yaml
