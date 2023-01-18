@@ -1,5 +1,6 @@
-AUTH_GITHUB_CLIENT_ID: f8caefde27e2f6bba85e
-AUTH_GITHUB_CLIENT_SECRET: 31654005f9159ce539c46685d8ae7d5bf4f911be 
+# GITHUB_TOKEN: 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
+# AUTH_GITHUB_CLIENT_ID: f8caefde27e2f6bba85e
+# AUTH_GITHUB_CLIENT_SECRET: 31654005f9159ce539c46685d8ae7d5bf4f911be 
 
 app:
   title: EcoOnline
@@ -24,6 +25,10 @@ backend:
     connect-src: ["'self'", 'http:', 'https:']
     # Content-Security-Policy directives follow the Helmet format: https://helmetjs.github.io/#reference
     # Default Helmet Content-Security-Policy values can be removed by setting the key to false
+  reading:
+    allow: 
+      - host: 'https://organisation.test.ecoonline.net/'
+
   cors:
     origin: http://localhost:3000
     methods: [GET, HEAD, PATCH, POST, PUT, DELETE]
@@ -43,9 +48,7 @@ backend:
       # ssl:
       #   ca: # if you have a CA file and want to verify it you can uncomment this section
       #     $file: <file-path>/ca/server.crt
-  reading:
-    allow:
-      - host: '*.ecoonline.net'
+
   cache:
     store: memory
   # workingDirectory: /tmp # Use this to configure a working directory for the scaffolder, defaults to the OS temp-dir
@@ -55,7 +58,7 @@ integrations:
     - host: github.com
       # This is a Personal Access Token or PAT from GitHub. You can find out how to generate this token, and more information
       # about setting up the GitHub integration here: https://backstage.io/docs/getting-started/configuration#setting-up-a-github-integration
-      token: ${GITHUB_TOKEN}
+      token: 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
     ### Example for how to add your GitHub Enterprise instance using the API:
     # - host: ghe.example.net
     #   apiBaseUrl: https://ghe.example.net/api/v3
@@ -100,19 +103,28 @@ catalog:
     - type: file
       target: ../../examples/entities.yaml
 
+    - type: file
+      target: ../../examples/api.yaml
+
+    - type: file
+      target: ../../examples/organisationApi.yaml
+
+    - type: file
+      target: ../../examples/template/doctemplate.yaml
+      rules:
+        - allow: [Template]
+        
     # Local example template
     - type: file
       target: ../../examples/template/template.yaml
-      rules:
-        - allow: [Template]
 
     # Local example organizational data
     - type: file
       target: ../../examples/org.yaml
       rules:
         - allow: [User, Group]
-
-    # # Uncomment these lines to add more example data
+      
+    # Uncomment these lines to add more example data
     # - type: url
     #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all.yaml
 

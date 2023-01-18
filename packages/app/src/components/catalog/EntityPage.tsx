@@ -53,6 +53,14 @@ import {
   RELATION_PROVIDES_API,
 } from '@backstage/catalog-model';
 
+import { EntityGithubPullRequestsContent } from '@roadiehq/backstage-plugin-github-pull-requests';
+import { EntityJiraOverviewCard, isJiraAvailable } from '@roadiehq/backstage-plugin-jira';
+import {
+ EntityDatadogContent,
+ EntityDatadogGraphCard,
+ isDatadogGraphAvailable
+} from '@roadiehq/backstage-plugin-datadog';
+
 import { TechDocsAddons } from '@backstage/plugin-techdocs-react';
 import { ReportIssue } from '@backstage/plugin-techdocs-module-addons-contrib';
 
@@ -127,7 +135,11 @@ const overviewContent = (
     <Grid item md={8} xs={12}>
       <EntityHasSubcomponentsCard variant="gridItem" />
     </Grid>
+  
+
   </Grid>
+
+  
 );
 
 const serviceEntityPage = (
@@ -165,6 +177,15 @@ const serviceEntityPage = (
     <EntityLayout.Route path="/docs" title="Docs">
       {techdocsContent}
     </EntityLayout.Route>
+
+    <EntityLayout.Route path="/pull-requests" title="Pull Requests">
+      <EntityGithubPullRequestsContent />
+    </EntityLayout.Route>
+
+    <EntityLayout.Route path="/datadog" title="Datadog">
+      <EntityDatadogContent />
+    </EntityLayout.Route>
+
   </EntityLayout>
 );
 

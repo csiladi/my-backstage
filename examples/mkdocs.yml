@@ -1,0 +1,9 @@
+site_name: example documentation
+site_description: this is an example of techdocs
+
+nav:
+  - Introduction: index.md
+  - Changelog: changelog.md
+
+plugins:
+  - techdocs-core

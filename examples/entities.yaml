@@ -12,12 +12,16 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: example-website
+  annotations:
+    datadoghq.com/site: datadoghq.com
+    backstage.io/techdocs-ref: dir:.
+
 spec:
   type: website
   lifecycle: experimental
   owner: guests
   system: examples
-  providesApis: [example-grpc-api]
+  providesApis: [identityAPI]
 ---
 # https://backstage.io/docs/features/software-catalog/descriptor-format#kind-api
 apiVersion: backstage.io/v1alpha1

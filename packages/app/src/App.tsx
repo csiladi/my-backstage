@@ -44,7 +44,7 @@ const app = createApp({
       <SignInPage
         {...props}
         auto
-        providers={['guest', 'custom', ...providers]}
+        providers={[...providers]}
         title="Select a sign-in method"
         align="center"
       />

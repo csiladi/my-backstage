@@ -9,7 +9,5 @@ metadata:
     backstage.io/techdocs-ref: dir:.
 spec:
   type: website
-  owner: john@example.com
+  owner: ciprian@ecoonline.com
   lifecycle: experimental
-annotations:
-  backstage.io/techdocs-ref: dir:.
